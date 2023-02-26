@@ -24,7 +24,7 @@ router.post('/create', fetchAdmin, (req, res) => {
 
 router.put('/update/:id', fetchAdmin, async (req, res) => {
 
-    const { imageUrl, description, tags, title } = req.body;
+    const { imageUrl, description, tags, title,author } = req.body;
 
     try {
 
@@ -34,11 +34,11 @@ router.put('/update/:id', fetchAdmin, async (req, res) => {
         if (description) { updateBlog.description = description };
         if (tags) { updateBlog.tags = tags };
         if (title) { updateBlog.title = title };
+        if (author) { updateBlog.author = author };
 
-        blog = await Blog.findByIdAndUpdate(req.params.id, { $set: updateBlog }, { new: true })
+        let blog = await Blog.findByIdAndUpdate(req.params.id, { $set: updateBlog }, { new: true })
 
         console.log(updateBlog);
-        // res.json({ updateBlog });
 
         res.status(200).send("blog updated successfully");
 

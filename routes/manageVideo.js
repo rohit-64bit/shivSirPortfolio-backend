@@ -34,6 +34,7 @@ router.post('/create', fetchAdmin, (req, res) => {
 
 // ROUTE 2: get video : GET '/api/video/fetch' require auth
 
+
 router.get('/fetch', async (req, res) => {
     try {
         const video = await Video.find().sort({_id : -1});
