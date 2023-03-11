@@ -12,7 +12,7 @@ router.post('/create', fetchAdmin, (req, res) => {
 
         console.log(req.body);
 
-        res.status(200).send("blog created successfully");
+        res.status(200).send({success: "blog created successfully"});
 
     } catch (error) {
         console.log(error.message);
@@ -24,7 +24,7 @@ router.post('/create', fetchAdmin, (req, res) => {
 
 router.put('/update/:id', fetchAdmin, async (req, res) => {
 
-    const { imageUrl, description, tags, title,author } = req.body;
+    const { imageUrl, description, tags, title, author } = req.body;
 
     try {
 
@@ -66,7 +66,7 @@ router.get('/fetch', async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
     try {
-        
+
         let blog = await Blog.findById(req.params.id);
         if (!blog) { return res.status(404).send('Not Found') }
 

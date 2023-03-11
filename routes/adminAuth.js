@@ -13,7 +13,6 @@ const env = process.env;
 
 jwtSecret = env.JWT_SECRET_ADMIN;
 
-
 // ROUTE 1: create a Admin using : POST '/api/auth/Admin/createAdmin' Doesn't require auth
 
 router.post('/createadmin', [
