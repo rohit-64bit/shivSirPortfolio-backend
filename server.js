@@ -7,7 +7,7 @@ const env = process.env;
 connectToMongo();
 
 const app = express();
-const port = 9051;
+const port = 9051 || process.env.PORT;
 
 app.use(cors({ origin: `${env.BASE_URL}`, }))
 
