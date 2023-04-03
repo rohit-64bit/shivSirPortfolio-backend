@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 backend
-
+create-admin-route-code.txt
 
 .env
 # Editor directories and files
