@@ -12,7 +12,7 @@ router.post('/create', fetchAdmin, (req, res) => {
 
         console.log(req.body);
 
-        res.status(200).send({success: "blog created successfully"});
+        res.status(200).send({"success": "blog created successfully"});
 
     } catch (error) {
         console.log(error.message);
@@ -72,10 +72,11 @@ router.delete('/delete/:id', async (req, res) => {
 
         blog = await Blog.findByIdAndDelete(req.params.id)
 
-        res.json({ "Success": "blog Deleted" })
+        res.status(200).json({ "success": "blog Deleted" })
 
     } catch (error) {
         console.log(error.message);
+        res.status(500).send('Internal Server Error')
     }
 })
 
